@@ -1,15 +1,19 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Casa Nativa{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Casa Nativa: objetos e inspirações para uma casa acolhedora, natural e cheia de personalidade.{% endblock %}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}" type="image/svg+xml">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
-    <main>
+    {% block header %}{% endblock %}
+    <main id="main-content">
       {% block content %}{% endblock %}
     </main>
+    {% include "components/footer.html" %}
     <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
   </body>
 </html>

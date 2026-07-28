@@ -1,0 +1,12 @@
+{% macro product_card(product) -%}
+  <article class="product-card">
+    <div class="product-card__visual" aria-hidden="true"></div>
+    <div class="product-card__content">
+      {% if product.badge %}<span class="badge">{{ product.badge }}</span>{% endif %}
+      <p class="product-card__category">{{ product.category }}</p>
+      <h3>{{ product.name }}</h3>
+      <p class="product-card__price">{{ product.price }} <span>(valor demonstrativo)</span></p>
+      <a class="button button--text" href="#colecoes" aria-label="Ver detalhes demonstrativos de {{ product.name }}">Ver detalhes</a>
+    </div>
+  </article>
+{%- endmacro %}

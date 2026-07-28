@@ -1,0 +1,10 @@
+{% macro category_card(collection) -%}
+  <a class="category-card" href="#destaques" aria-label="Ver coleção {{ collection.name }}">
+    <span class="category-card__visual" aria-hidden="true"></span>
+    <span class="category-card__content">
+      <span class="category-card__title">{{ collection.name }}</span>
+      <span class="category-card__description">{{ collection.description }}</span>
+      <span class="category-card__link">Explorar <span aria-hidden="true">→</span></span>
+    </span>
+  </a>
+{%- endmacro %}

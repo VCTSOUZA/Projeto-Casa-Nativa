@@ -1,0 +1,7 @@
+{% macro section_header(eyebrow, title_id, title, description) -%}
+  <header class="section-header">
+    <p class="eyebrow">{{ eyebrow }}</p>
+    <h2 id="{{ title_id }}">{{ title }}</h2>
+    <p>{{ description }}</p>
+  </header>
+{%- endmacro %}

@@ -1,5 +1,72 @@
 {% extends "base.html" %}
 
+{% from "components/section_header.html" import section_header %}
+{% from "components/category_card.html" import category_card %}
+{% from "components/product_card.html" import product_card %}
+
+{% block title %}Casa Nativa | Sua casa, sua essência{% endblock %}
+{% block meta_description %}Descubra a Casa Nativa: peças e inspirações para criar uma casa acolhedora, natural e com personalidade.{% endblock %}
+
+{% block header %}
+  {% include "components/navbar.html" %}
+{% endblock %}
+
 {% block content %}
-  <h1>Casa Nativa</h1>
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="container hero__grid">
+      <div class="hero__content">
+        <p class="eyebrow">Casa Nativa</p>
+        <h1 id="hero-title">Um espaço que tem a sua essência.</h1>
+        <p class="hero__lead">Peças, texturas e detalhes para tornar os seus dias mais acolhedores — do seu jeito.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#colecoes">Conheça as coleções</a>
+          <a class="button button--text" href="#nossa-essencia">Nossa história</a>
+        </div>
+      </div>
+      <figure class="visual-placeholder visual-placeholder--hero">
+        <div class="visual-placeholder__art" aria-hidden="true"><span class="art-sun"></span><span class="art-arch"></span><span class="art-plant"></span></div>
+        <figcaption>Imagem de ambiente em breve</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="colecoes" aria-labelledby="colecoes-title">
+    <div class="container">
+      {{ section_header("Coleções", "colecoes-title", "Espaços para viver com calma", "Encontre inspirações que acompanham os seus rituais e deixam a casa mais sua.") }}
+      <div class="category-grid">{% for collection in collections %}{{ category_card(collection) }}{% endfor %}</div>
+    </div>
+  </section>
+
+  <section class="section section--sand" id="destaques" aria-labelledby="destaques-title">
+    <div class="container">
+      {{ section_header("Seleção da casa", "destaques-title", "Peças em destaque", "Objetos que trazem textura, luz e afeto para os pequenos momentos.") }}
+      <div class="product-grid">{% for product in products %}{{ product_card(product) }}{% endfor %}</div>
+      <div class="section__action"><a class="button button--secondary" href="#colecoes">Ver coleções</a></div>
+    </div>
+  </section>
+
+  <section class="section essence" id="nossa-essencia" aria-labelledby="essencia-title">
+    <div class="container essence__grid">
+      <figure class="visual-placeholder visual-placeholder--essence">
+        <div class="visual-placeholder__art" aria-hidden="true"><span class="art-sun"></span><span class="art-arch"></span><span class="art-plant"></span></div>
+        <figcaption>Imagem editorial em breve</figcaption>
+      </figure>
+      <div class="essence__content">
+        <p class="eyebrow">Nossa essência</p>
+        <h2 id="essencia-title">Acreditamos que uma casa deve contar histórias.</h2>
+        <p>Uma casa ganha significado nos detalhes que acolhem: uma textura conhecida, a luz da manhã, uma peça escolhida com calma.</p>
+        <p>Na Casa Nativa, buscamos inspirações que aproximam natureza, bem-estar e personalidade para acompanhar a sua forma de viver.</p>
+        <a class="button button--text" href="#contato">Conheça a Casa Nativa</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" aria-labelledby="cta-title">
+    <div class="container final-cta__content">
+      <p class="eyebrow eyebrow--light">Para a sua casa</p>
+      <h2 id="cta-title">Encontre o que faz sua casa ser sua.</h2>
+      <p>Descubra detalhes que transformam o cotidiano em um lugar de bem-estar.</p>
+      <a class="button button--light" href="#colecoes">Explorar coleções</a>
+    </div>
+  </section>
 {% endblock %}
